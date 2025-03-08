@@ -3,6 +3,8 @@
   "website": "https://avax.network",
   "symbol": "AVAX",
   "explorer": "https://snowtrace.io/",
+  "description": "Avalanche is an open, programmable smart contracts platform for decentralized applications.",
+  "category": "Smart Contract Platform",
   "links": [
     {
       "name": "github",
@@ -15,7 +17,18 @@
     {
       "name": "reddit",
       "url": "https://www.reddit.com/r/Avax/"
+    },
+    {
+      "name": "telegram",
+      "url": "https://t.me/avalancheavax"
+    },
+    {
+      "name": "medium",
+      "url": "https://medium.com/avalancheavax"
     }
   ],
-  "coinGeckoID": "avalanche-2"
+  "coinGeckoID": "avalanche-2",
+  "coinMarketCapID": "avax",
+  "launchDate": "2020-09-21",
+  "whitepaper": "https://www.avalabs.org/whitepapers"
 }
