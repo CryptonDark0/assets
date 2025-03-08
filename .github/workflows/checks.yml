@@ -1,20 +1,39 @@
-name: Check-Consistency
+name: CI Checks
+
 on:
   pull_request:
     branches:
-    - master
+      - master
+  push:
+    branches:
+      - master
+
 jobs:
-  run-checks:
-    name: run-checks
+  checks:
+    name: Run Checks
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 15.x]
+        node-version: [12.x, 14.x, 16.x]
+
     steps:
-      - uses: actions/checkout@v2
-      - name: install-nodejs
-        uses: actions/setup-node@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.version }}
-      - run: npm install
-      - run: npm run check
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run build
+        run: npm run build
